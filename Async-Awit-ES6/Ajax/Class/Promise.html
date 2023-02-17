@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Dưới đây là một ví dụ minh họa về việc sử dụng promise với hai tham số resolve và reject:
+
+        function getNumber() {
+            return new Promise((resolve, reject) => {
+                const randomNumber = Math.floor(Math.random() * 10);
+                if (randomNumber < 5) {
+                reject('Số nhỏ hơn 5');
+                } else {
+                resolve(randomNumber);
+                }
+            });
+        }
+
+        getNumber()
+        .then(number => {
+            console.log(`Số là: ${number}`);
+        })
+        .catch(error => {
+            console.error(`Đã xảy ra lỗi: ${error}`);
+        });
+        // Bước 1: Hàm getNumber() trả về một promise với hai tham số resolve và reject.
+
+        // function getNumber() {
+        //   return new Promise((resolve, reject) => {
+        //     const randomNumber = Math.floor(Math.random() * 10);
+        //     if (randomNumber < 5) {
+        //       reject('Số nhỏ hơn 5');
+        //     } else {
+        //       resolve(randomNumber);
+        //     }
+        //   });
+        // }
+        // Bước 2: Trong hàm getNumber(), một số ngẫu nhiên được tạo bằng cách sử dụng hàm Math.random().
+
+        // const randomNumber = Math.floor(Math.random() * 10);
+        // Bước 3: Nếu số nhỏ hơn 5, promise sẽ bị từ chối (rejected) bằng cách gọi hàm reject() với thông báo lỗi là 'Số nhỏ hơn 5'.
+
+
+        // if (randomNumber < 5) {
+        //   reject('Số nhỏ hơn 5');
+        // }
+        // Bước 4: Nếu số lớn hơn hoặc bằng 5, promise sẽ được giải quyết (resolved) bằng cách gọi hàm resolve() với giá trị số được tạo ra.
+
+        // else {
+        //   resolve(randomNumber);
+        // }
+        // Bước 5: Sử dụng hàm then() để xử lý giá trị trả về từ promise khi nó được giải quyết thành công.
+
+
+        // getNumber()
+        //   .then(number => {
+        //     console.log(`Số là: ${number}`);
+        //   })
+        // Bước 6: Sử dụng hàm catch() để xử lý lỗi khi promise bị từ chối.
+
+
+        // getNumber()
+        //   .catch(error => {
+        //     console.error(`Đã xảy ra lỗi: ${error}`);
+        //   });
+        // Kết quả: Nếu số được tạo ra lớn hơn hoặc bằng 5, hàm then() sẽ được gọi và số được hiển thị trên console. Nếu số được tạo ra nhỏ hơn 5, hàm catch() sẽ được gọi và thông báo lỗi được hiển thị trên console.
+
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                // Thực hiện các tác vụ bất đồng bộ ở đây
+                // Ví dụ: gửi request tới server
+                fetch('https://api.example.com/data')
+                .then(response => {
+                    if (!response.ok) {
+                    throw new Error('Không thể lấy dữ liệu từ server');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    resolve(data);
+                })
+                .catch(error => {
+                    reject(error);
+                });
+            });
+        }
+
+        // Với cấu trúc trên, ta có thể giải thích từng dòng lệnh như sau:
+
+        // 1. function fetchData(): Khai báo một hàm có tên là fetchData.
+
+        // 2. return new Promise((resolve, reject) => {...}): Hàm fetchData trả về một đối tượng Promise mới, trong đó có tham số là một hàm có hai tham số là resolve và reject.
+
+        // 3. fetch('https://api.example.com/data'): Thực hiện một request tới API của trang web có đường dẫn là https://api.example.com/data. Đây là một tác vụ bất đồng bộ, nên kết quả của tác vụ này không thể biết trước.
+
+        // .then(response => {...}): Khi request trả về kết quả, nó sẽ được đưa vào hàm then này, với tham số là response. Đây là một đối tượng Response của API, chứa các thông tin như HTTP status code, headers, và nội dung.
+
+        // if (!response.ok) {...}: Kiểm tra xem response có thành công không, bằng cách xem giá trị của thuộc tính ok trong đối tượng Response. Nếu không thành công, tức là giá trị của ok là false, sẽ ném ra một lỗi (error) bằng từ khóa throw.
+
+        // throw new Error('Không thể lấy dữ liệu từ server'): Tạo một đối tượng lỗi mới, với thông điệp là "Không thể lấy dữ liệu từ server", và ném ra lỗi này.
+
+        // return response.json(): Nếu response thành công, tức là ok là true, lấy nội dung của response dưới dạng JSON bằng phương thức json() của đối tượng Response. Hàm then này trả về dữ liệu JSON đã được parse.
+
+        // .then(data => {...}): Khi dữ liệu JSON đã được parse, đưa nó vào hàm then này, với tham số là data. Hàm này sẽ resolve promise với giá trị là data.
+
+        // resolve(data): Giải quyết promise với giá trị là data, tức là trả về kết quả thành công của tác vụ bất đồng bộ.
+
+        // .catch(error => {...}): Nếu có lỗi xảy ra trong quá trình thực hiện tác vụ bất đồng bộ, ném ra một exception, hoặc có lỗi trong việc parse dữ liệu JSON, thì chúng sẽ được đưa vào hàm catch này, với tham số là error. Hàm này sẽ reject promise với giá trị là error.
+
+        // reject(error): Từ chối promise với giá trị là error, tức là trả về kết quả không thành công của tác vụ bất đồng bộ.
+
+        //****************************************************************
+        //Giải thích từ phần .then().then().catch()
+        // .then(response => {: Hàm then() trong Promise sẽ nhận vào một hàm callback, nhận đối số là giá trị được trả về từ Promise trước đó, ở đây là giá trị phản hồi từ phía server sau khi thực hiện request (biến response).
+
+        // if (!response.ok) {: Ở đây, điều kiện !response.ok sẽ kiểm tra xem trạng thái phản hồi từ server có bằng false hay không. Nếu bằng false, tức là có lỗi xảy ra trong quá trình thực hiện request, lệnh throw new Error(...) sẽ được thực hiện để đẩy ra lỗi.
+
+        // return response.json();: Nếu trạng thái phản hồi là true, tức là không có lỗi, hàm này sẽ chuyển đổi kết quả phản hồi từ server, ở đây là dữ liệu được trả về, sang định dạng JSON bằng hàm json(), và trả về dữ liệu đó cho hàm then() tiếp theo.
+
+        // .then(data => {: Hàm then() tiếp theo nhận vào dữ liệu được trả về từ hàm trước đó, ở đây là dữ liệu được chuyển đổi sang định dạng JSON (biến data).
+
+        // resolve(data);: Ở đây, hàm resolve() được gọi với tham số là dữ liệu được trả về từ server, để trả về giá trị đó cho hàm fetchData(), từ đó hàm fetchData() sẽ trả về giá trị đó cho chương trình sử dụng
+
+        
+    function doubleEvenNumbers(numbers) {
+        return new Promise(function(resolve, reject) {
+            if (!Array.isArray(numbers)) {
+            reject(new Error("Dữ liệu không phải là một mảng."));
+            } else {
+            const result = numbers.map(function(num) {
+                if (num % 2 === 0) {
+                return num + 2;
+                } else {
+                throw new Error(`Số ${num} không phải số chẵn`);
+                }
+            });
+            resolve(result);
+            }
+        });
+    }
+
+    const arr = [2, 4, 6, 8];
+
+    doubleEvenNumbers(arr)
+        .then(function(result) {
+            console.log(result);
+            return result.reduce(function(acc, num) {
+            return acc + num;
+            }, 0);
+        })
+        .then(function(sum) {
+            console.log(`Tổng các số trong mảng là ${sum}`);
+            return sum;
+        })
+        .catch(function(error) {
+            console.error(error);
+        })
+        .finally(function() {
+            console.log("Kết thúc");
+        });
+
+
+    </script>
+</body>
+</html>

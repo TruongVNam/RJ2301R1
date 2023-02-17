@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="load-data">Load Data</button>
+    <table id="result"></table>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        const url = 'https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json'
+        $(document).ready(function(){
+            $('#load-data').click(function(){
+                $.ajax({
+                    method: 'GET',
+                    url: url
+                }).done(function (res) {
+                    console.log(res);
+                    tableheader = '<tr><td>Name</td><td>Price</td><td>Image</td><td>Type</td></tr>';
+                    document.getElementById('result').innerHTML = tableheader + res.map(
+                        item => `<tr><td>${item.name}</td><td>${item.price}</td><td>${item.image}</td><td>${item.type}</td></tr>`)
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Bài 1: Tạo async function
+        async function f(){
+            console.log('Async function.');
+            return Promise.resolve(1);
+        }
+        f();
+
+        // Bài 2: Chaining method
+        async function f1(){
+            console.log('Async function.');
+            return Promise.resolve(1);
+        }
+        f1().then(function(result){
+            console.log(result);
+        });
+        // Bài 3: Sử dụng await với async function
+        let promise = new Promise(function(resolve,reject){
+            setTimeout(function () {
+                resolve('Promise resolved')
+            },
+            4000);
+        });
+
+        async function asyncFunc(){
+            let result = await promise;
+            console.log(result);
+            console.log('Hello');
+        }
+        asyncFunc()
+
+    </script>
+</body>
+</html>

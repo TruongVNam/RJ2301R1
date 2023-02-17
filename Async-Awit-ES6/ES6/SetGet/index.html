@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class Animal{
+        //     constructor(ID, Name, Type) {
+        //         this.ID= ID,
+        //         this.Name= Name,
+        //         this.Type=Type
+        //     }
+        // }
+
+        let animalList = [
+            {ID: "DV8", Name: "Eurasian Collared-Dove", Type: "Dove" },
+            {ID: "HK12", Name: "Bald Eagle", Type: "Hawk" },
+            {ID: "HK6", Name: "Cooper's Hawk", Type: "Hawk" },
+            {ID: "SP11", Name: "Bell's Sparrow", Type: "Sparrow" },
+            {ID: "DV2", Name: "Mourning Dove", Type: "Dove" }
+        ];
+        
+        //Check an animal is exist in animal list?
+        function isAnimalExist(animalToCheck, animalList){
+            let check = true;
+            for (let i = 0; i < animalList.length;){
+                if (animalList[i].ID !== animalToCheck && animalList[i].Name !== animalToCheck){
+                    i++;
+                }else{
+                    check = false;
+                    break;
+                };   
+            }
+            return check
+        }
+        console.log(isAnimalExist('Bald Eagle', animalList));
+
+        // Delete an animal from the animal list
+        function deleteAnimalExist(animalToDel, animalList){
+            let index;
+            for (let i = 0; i < animalList.length;){
+                if (animalList[i].ID !== animalToCheck && animalList[i].Name !== animalToCheck){
+                    i++;
+                }else{
+                    check = false;
+                    break;
+                };   
+            }
+            return check
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
