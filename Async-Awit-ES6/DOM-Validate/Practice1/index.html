@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Regular expression to check string's first character is uppercase or not</title>
+</head>
+<body>
+    <script src="isUpperCase.js">
+        function isFirstLetterUpperCase(str) {
+        regexp = /^[A-Z]/;
+        if (regexp.test(str)){
+            console.log("String is first letter uppercase");
+        }else{
+            console.log("String is first letter lowercase");
+        }
+}
+
+        isFirstLetterUpperCase('Abcd');
+        let str1 = 'abcd';
+        isFirstLetterUpperCase('str1');
+        isFirstLetterUpperCase('Nguyen van Nam');
+        isFirstLetterUpperCase('NGUYEN VAN NAM');
+        isFirstLetterUpperCase('nguyen van Nam');
+    </script>
+</body>
+</html>
