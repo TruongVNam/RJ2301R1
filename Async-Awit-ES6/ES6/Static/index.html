@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class ThongTin {
+            constructor(ten, mo_ta) {
+                this.ten = ten;
+                this.mo_ta = mo_ta;
+            }
+
+            tinh_toan(tham_so = 1) {
+                return tham_so * 3;
+            }
+        }
+
+        class HinhHoc extends ThongTin {
+            constructor(ten, mo_ta, chieu_dai) {
+                super(ten, mo_ta);
+                this.chieu_dai = chieu_dai;
+            }
+
+            tinh_toan(tham_so = 1) {
+                return this.chieu_dai * super.tinh_toan(tham_so);
+            }
+        }
+
+        // Tạo đối tượng hình học và gọi các thuộc tính và phương thức
+        
+        let hinh_hoc = new HinhHoc("Hình chữ nhật", "Hình chữ nhật có chiều dài và chiều rộng", 5);
+        console.log(hinh_hoc.ten);
+        console.log(hinh_hoc.mo_ta);
+        console.log(hinh_hoc.chieu_dai);
+        console.log(hinh_hoc.tinh_toan()); // Kết quả là 15
+
+    </script>
+</body>
+</html>
