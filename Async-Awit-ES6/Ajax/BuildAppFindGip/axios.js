@@ -1,4 +1,4 @@
-const openweathermapAPIKey = '4d86dc4bdc11c31ec2c4e653e04efd8b'
+const giphyAPIKey =  'VdGsgZ6Y2JZoJ65s9hc19sewTXEnfQDZ'
 let container = document.getElementById('giphy_result')
 const url = `https://api.giphy.com/v1/gifs/search?q=${giphyKeyWord}&api_key=${giphyAPIKey}`
 async function searchimg(params) {
@@ -17,4 +17,8 @@ async function searchimg(params) {
     }catch(e){
         console.error(e)
     }
+}
+
+function remove(){
+    container.innerHTML = ''
 }
