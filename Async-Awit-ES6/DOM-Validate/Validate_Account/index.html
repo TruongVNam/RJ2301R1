@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="index.js">
+    let accountList = [
+    {acname: '123abc_'},
+    {acname: '_abc123'},
+    {acname: '______'},
+    {acname: '.@'},
+    {acname: '12345'},
+    {acname: '1234_'},
+    {acname: 'abcde'}]
+
+    for (const {acname} of accountList) {
+    console.log(isAccountRight(acname))
+}
+    </script>
+</body>
+</html>

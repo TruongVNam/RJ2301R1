@@ -1,0 +1,1 @@
+const giphyAPIKey =  'VdGsgZ6Y2JZoJ65s9hc19sewTXEnfQDZ'
