@@ -1,19 +1,13 @@
-import './index.css';
-
-import AppClassComponent from './AppClassComponent';
-import AppFunctionComponent from './AppFunctionComponent';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <>
-      {/* <AppClassComponent /> */}
-      {/* <hr></hr> */}
-      <AppFunctionComponent />
-    </>
+    <App />
   </React.StrictMode>
 );
 

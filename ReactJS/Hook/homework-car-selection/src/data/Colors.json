@@ -1,0 +1,22 @@
+{"colors": [
+    { "id": 0, "name": "Aqua" },
+    { "id": 1, "name": "Black" },
+    { "id": 2, "name": "Blue" },
+    { "id": 3, "name": "Fuchsia" },
+    { "id": 4, "name": "Gray" },
+    { "id": 5, "name": "Green" },
+    { "id": 6, "name": "Lime" },
+    { "id": 7, "name": "Maroon" },
+    { "id": 8, "name": "Navy" },
+    { "id": 9, "name": "Olive" },
+    { "id": 10, "name": "Orange" },
+    { "id": 11, "name": "Purple" },
+    { "id": 12, "name": "Red" },
+    { "id": 13, "name": "Silver" },
+    { "id": 14, "name": "Teal" },
+    { "id": 15, "name": "White" },
+    { "id": 16, "name": "Yellow" }
+  ]
+}
+
+  

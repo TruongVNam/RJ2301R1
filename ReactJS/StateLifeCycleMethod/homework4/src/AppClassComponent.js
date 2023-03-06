@@ -1,15 +1,13 @@
 import './App.css';
 import './icon.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react';
 import { studentListShort } from "./studentList.js";
 
 const nameValidator = /^[a-zA-Z0-9_-]{3,16}$/;
 const phoneValidator = /^[0]{1}[1-9]{1}[0-9]{1,8}$/m;
-
 const emailValidator = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
 
 
 class AppClassComponent extends React.Component {
@@ -24,15 +22,6 @@ class AppClassComponent extends React.Component {
     };
   }
   
-  // handleChange = (event) => {
-  //   console.log(event.target.value)
-  //   this.setState((state) => {
-  //     const form = state.form
-  //     form[event.target.name] = event.target.value;
-  //     return { form }
-  //   },
-  //     () => this.checkInvalidForm());
-  // }
   handleChange = (event) => {
     console.log(event.target.value)
     const form = {...this.state.form}
@@ -61,15 +50,12 @@ class AppClassComponent extends React.Component {
     console.log('Is input name right? ', nameValidator.test(name));
     console.log('Is input phone right? ', phoneValidator.test(phone));
     console.log('Is input email right? ', emailValidator.test(email));
-    // nameErr= !nameValidator.test(name);
-    // phoneErr= !phoneValidator.test(phone);
-    // emailErr= !emailValidator.test(email);
+
     if (!nameValidator.test(name) || !phoneValidator.test(phone) || !emailValidator.test(email)) {
       value = false;
     }
     this.setState({
       isValid: value
-      // validErr: {nameErr: nameErr, phoneErr: phoneErr, emailErr: emailErr}
     })
     console.log(value);
   }
@@ -77,10 +63,6 @@ class AppClassComponent extends React.Component {
   handleSubmit = () => {
     let { studentList, form, isValid, indexSelected} = {...this.state}
     const { name, phone, email } = form;
-    // let { nameErr, phoneErr, emailErr } = validErr;
-    // nameErr= !nameValidator.test(name);
-    // phoneErr= !phoneValidator.test(phone);
-    // emailErr= !emailValidator.test(email);
     console.log('trước khi thực hiện thay đổi state');
     console.log(this.state);
     if (isValid) {
