@@ -1,0 +1,12 @@
+.custom-input-error label {
+  color: red;
+}
+
+.custom-input-error input {
+  border-color: red;
+
+}
+
+.error{
+  color: red;
+}
