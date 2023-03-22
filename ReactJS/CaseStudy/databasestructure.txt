@@ -1,0 +1,32 @@
+Bảng Users:
+user_id: khoá chính, định danh người dùng
+username: tên đăng nhập
+password: mật khẩu
+role: quyền người dùng (quản lý hệ thống hoặc thủ thư)
+
+Bảng Libraries:
+library_id: khoá chính, định danh thư viện
+library_name: tên thư viện
+user_id: khoá ngoại, định danh người dùng quản lý thư viện
+Bảng Books:
+book_id: khoá chính, định danh sách
+book_title: tiêu đề sách
+book_author: tác giả sách
+category: danh mục sách
+status: tình trạng sách (mới, cũ, hỏng)
+isbn: định danh sách (sử dụng mã vạch ISBN của NXB)
+library_id: khoá ngoại, định danh thư viện mà sách đó thuộc về
+
+Bảng Borrowers:
+borrower_id: khoá chính, định danh người mượn sách
+borrower_name: tên người mượn sách
+school: trường của người mượn sách
+class: lớp của người mượn sách
+
+Bảng Borrowings:
+borrowing_id: khoá chính, định danh mượn sách
+book_id: khoá ngoại, định danh sách được mượn
+borrower_id: khoá ngoại, định danh người mượn sách
+borrow_date: ngày mượn sách
+return_date: ngày trả sách
+status: tình trạng sách khi mượn/trả (mới, cũ, hỏng)
